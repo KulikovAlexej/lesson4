@@ -19,7 +19,6 @@
         </tr>
     </tbody>
 </table>
-<button (click)="addProduct({ id: 10, name: 'product 1', price: 100, category: 1 })">add product</button>
 <div class="row">
     <div class='col-sm-2'>
         <h1>Выбрать категории:</h1>
@@ -30,4 +29,4 @@
         </form>
     </div>
 </div>
-<addition [primaryArr] = 'Products' [readyArr] = 'newProducts' [categoryList] = 'Categories' [category] = 'Category'></addition>
+<addition [Categories] = 'Categories' [Products] = 'Products' (AddNewProduct) = 'generateArr($event)'></addition>

@@ -14,11 +14,7 @@ export default class myTable {
     NewProducts: Array<any>;
     Categories: Array<string> = ['All Categories', '1', '2', '3'];
     Category: string = this.Categories[0];
-    // newProd: Object = {
-    //     name: 'лимончик',
-    //     category: 2,
-    //     price: 300
-    // };
+    
     Products: Array<any> = [
         { id: 1, name: 'product 1', price: 100, category: 1 },
         { id: 2, name: 'product 2', price: 200, category: 2 },
@@ -45,15 +41,9 @@ export default class myTable {
         this.generateArr();
     }
 
-    addProduct(product) {
-        this.NewProducts.push(product);
+    deleteProduct(obj) {
+        let elem = this.NewProducts.indexOf(obj);
+        this.NewProducts.splice(elem, 1);
+        this.Products = this.NewProducts;
     }
-
-
-    // addProduct(){
-    //     let cloneProduct = {...this.newProd};
-    //     this.Products.push(cloneProduct);
-    //     this.generateArr();
-    // }
-
 }
