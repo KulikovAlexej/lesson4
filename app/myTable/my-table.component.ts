@@ -24,6 +24,7 @@ export default class myTable {
         { id: 6, name: 'product 6', price: 600, category: 3 },
         { id: 7, name: 'product 7', price: 700, category: 1 },
         { id: 8, name: 'product 8', price: 800, category: 2 },
+        { id: 8, name: 'vodka', price: 850, category: 2 },
         { id: 9, name: 'product 9', price: 900, category: 3 }];
     //надо генерировать массив в зависимости от значения Category
     generateArr() {
@@ -33,7 +34,6 @@ export default class myTable {
             this.NewProducts = this.NewProducts.filter(function (item) {
                 return item.category == numb
             });
-            console.log(this.Category)
         }
 
     }
