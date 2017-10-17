@@ -7,6 +7,7 @@ import { AppComponent }   from './app.component';
 import myTable from './myTable/my-table.component';
 import addition from './myTable/addition/addition.component'
 import { FormsModule } from '@angular/forms';
+import DataService from './myTable/data.service'
 // @NgModule - декоратор, который определяет данные для создаваемого модуля.
 // Для того чтобы приложение могло выполняться в браузере, текущий модуль (корневой модуль)
 // должен выполнить импорт модуля BrowserModule взятого из @angular/platform-browser 
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
   declarations: [ AppComponent, myTable, addition ], // корневой компонент данного приложения
-  bootstrap:    [ AppComponent ]  // компонент с которого начинается отображение приложения
+  bootstrap:    [ AppComponent ],  // компонент с которого начинается отображение приложения
+  providers: [DataService]
 })
 
 export class AppModule { 

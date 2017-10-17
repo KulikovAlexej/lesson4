@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import  addition  from './addition/addition.component'
+import DataService from './data.service'
 
 @Component({
     moduleId: module.id,
@@ -37,8 +38,13 @@ export default class myTable {
         }
 
     }
+
+    constructor(private Data: DataService){}
+
     ngOnInit() {
         this.generateArr();
+        let outputArr = this.Data.getData();
+        console.log(outputArr);
     }
 
     deleteProduct(obj) {
