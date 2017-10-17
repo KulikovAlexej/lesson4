@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import  addition  from './addition/addition.component'
 import DataService from './data.service'
+import { NgForm } from '@angular/forms'
 
 @Component({
     moduleId: module.id,
@@ -15,7 +16,7 @@ export default class myTable {
     NewProducts: Array<any>;
     Categories: Array<string> = ['All Categories', '1', '2', '3'];
     Category: string = this.Categories[0];
-    
+    // Products;
     Products: Array<any> = [
         { id: 1, name: 'product 1', price: 100, category: 1 },
         { id: 2, name: 'product 2', price: 200, category: 2 },
@@ -29,27 +30,31 @@ export default class myTable {
         { id: 9, name: 'product 9', price: 900, category: 3 }];
     //надо генерировать массив в зависимости от значения Category
     generateArr() {
-        this.NewProducts = this.Products.slice(0, this.Products.length);
+        this.NewProducts = [...this.Products];
         if (this.Category != 'All Categories') {
             let numb = this.Category;
             this.NewProducts = this.NewProducts.filter(function (item) {
                 return item.category == numb
             });
+            console.log(this.Category)
         }
+        console.log('dont enter in condition')
 
     }
 
     constructor(private Data: DataService){}
 
     ngOnInit() {
+        // this.Products = this.Data.getData();
         this.generateArr();
-        let outputArr = this.Data.getData();
-        console.log(outputArr);
     }
 
     deleteProduct(obj) {
         let elem = this.NewProducts.indexOf(obj);
         this.NewProducts.splice(elem, 1);
         this.Products = this.NewProducts;
+    }
+    test(){
+        console.log(123)
     }
 }

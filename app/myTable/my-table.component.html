@@ -23,7 +23,8 @@
     <div class='col-sm-2'>
         <h1>Выбрать категории:</h1>
         <form class='form-horizontal'>
-            <select (select)= generateArr() class="form-control" name="category" [(ngModel)]='Category'>
+            <!--dont work select-event because replace on click again -->
+            <select (click)= generateArr() class="form-control" name="category" [(ngModel)]='Category'>
             <option *ngFor='let category of Categories'>{{ category }}</option>
         </select>
         </form>
